@@ -11,4 +11,10 @@ class OurHash
     index = @keyArray.index(key)
     @valueArray[index]
   end
+  define_method(:OurHasKey?) do |key|
+    @keyArray.include?(key)
+  end
+  define_method(:OurHasValue?) do |value|
+    @valueArray.include?(value)
+  end
 end

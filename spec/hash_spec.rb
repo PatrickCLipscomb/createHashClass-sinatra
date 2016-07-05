@@ -15,4 +15,32 @@ describe(OurHash) do
       expect(test_hash.OurFetch("hello")).to(eq("world"))
     end
   end
+  describe('#OurHasKey?') do
+    it('determines if the key array has the key') do
+      test_hash = OurHash.new()
+      test_hash.OurStore("hello", "world")
+      expect(test_hash.OurHasKey?("hello")).to(eq(true))
+    end
+  end
+  describe('#OurHasKey?') do
+    it('determines if the key array has the key') do
+      test_hash = OurHash.new()
+      test_hash.OurStore("hello", "world")
+      expect(test_hash.OurHasKey?("hey")).to(eq(false))
+    end
+  end
+  describe('#OurHasValue?') do
+    it('determines if the value array has the value') do
+      test_hash = OurHash.new()
+      test_hash.OurStore("hello", "world")
+      expect(test_hash.OurHasValue?("world")).to(eq(true))
+    end
+  end
+  describe('#OurHasValue?') do
+    it('determines if the value array has the value') do
+      test_hash = OurHash.new()
+      test_hash.OurStore("hello", "world")
+      expect(test_hash.OurHasValue?("werd")).to(eq(false))
+    end
+  end
 end
