@@ -1,17 +1,18 @@
-# require('capybara/rspec')
-# require('./app')
-# Capybara.app = Sinatra::Application
-# set(:show_exceptions, false)
-#
-# describe('the parcels path', {:type => :feature}) do
-#   it('returns the cost of a parcel based on volume, weight and distance to be shipped') do
-#     visit('/')
-#     fill_in('length', :with => 12)
-#     fill_in('width', :with => 7)
-#     fill_in('height', :with => 2)
-#     fill_in('weight', :with => 4)
-#     fill_in('distance', :with => 200)
-#     click_button('Submit')
-#     expect(page).to have_content(6)
-#   end
-# end
+require('capybara/rspec')
+require('./app')
+Capybara.app = Sinatra::Application
+set(:show_exceptions, false)
+
+describe('the OurHash path', {:type => :feature}) do
+  it('creates a OurHash class that functions as a mediocre Hash') do
+    visit('/')
+    fill_in('key1', :with => 'apple')
+    fill_in('value1', :with => 'pie')
+    fill_in('key2', :with => 'pizza')
+    fill_in('value2', :with => 'crust')
+    fill_in('key3', :with => 'nacho')
+    fill_in('value3', :with => 'cheese')
+    click_button('Submit')
+    expect(page).to have_content('apple'' ''pie'' ''pizza'' ''crust'' ''nacho'' ''cheese')
+  end
+end

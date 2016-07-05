@@ -17,4 +17,7 @@ class OurHash
   define_method(:OurHasValue?) do |value|
     @valueArray.include?(value)
   end
+  define_method(:OurLength) do
+    @keyArray.length
+  end
 end

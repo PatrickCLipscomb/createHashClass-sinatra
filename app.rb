@@ -1,19 +1,22 @@
 require('sinatra')
 require('sinatra/reloader')
-require('./lib/parcels')
+require('./lib/hash')
 also_reload('lib/**/*.rb')
 
 get('/') do
   erb(:index)
 end
 
-get ('/parcels') do
-  length = params.fetch('length').to_i()
-  width = params.fetch('width').to_i()
-  height = params.fetch('height').to_i()
-  weight = params.fetch('weight').to_i()
-  distance = params.fetch('distance').to_i()
-  parcel = Parcel.new(length, width, height, weight)
-  @cost = parcel.cost_to_ship(distance)
-  erb(:parcels)
+get ('/hash') do
+  @key1 = params.fetch('key1')
+  @value1 = params.fetch('value1')
+  @key2 = params.fetch('key2')
+  @value2 = params.fetch('value2')
+  @key3 = params.fetch('key3')
+  @value3 = params.fetch('value3')
+  @hashy = OurHash.new()
+  @hashy.OurStore(@key1, @value1)
+  @hashy.OurStore(@key2, @value2)
+  @hashy.OurStore(@key3, @value3)
+  erb(:hash)
 end
