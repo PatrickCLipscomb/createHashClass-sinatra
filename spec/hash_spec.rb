@@ -1,17 +1,18 @@
 require('rspec')
-require('parcels')
+require('hash')
 
-describe(Parcel) do
-  describe('#volume') do
-    it('returns the volume of a parcel') do
-      test_parcel = Parcel.new(12, 7, 2, 3)
-      expect(test_parcel.volume()).to(eq(168))
+describe(OurHash) do
+  describe('#OurStore') do
+    it('stores a new key value pair in the hash') do
+      test_hash = OurHash.new()
+      expect(test_hash.OurStore("hello", "world")).to(eq(["world"]))
     end
   end
-  describe('#cost_to_ship') do
-    it('returns the cost to ship a parcel depending on distance, volume and weight') do
-      test_parcel = Parcel.new(12, 7, 2, 4)
-      expect(test_parcel.cost_to_ship(200)).to(eq(6))
+  describe('#OurFetch') do
+    it('fetches the value of the designated key') do
+      test_hash = OurHash.new()
+      test_hash.OurStore("hello", "world")
+      expect(test_hash.OurFetch("hello")).to(eq("world"))
     end
   end
 end
